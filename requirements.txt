@@ -1,0 +1,6 @@
+rich
+python-dotenv
+pymongo
+requests
+Flask
+fpdf
