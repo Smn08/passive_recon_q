@@ -1,4 +1,3 @@
-from googlesearch import search
 import requests
 from rich import print
 import os

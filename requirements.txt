@@ -4,3 +4,5 @@ pymongo
 requests
 Flask
 fpdf
+google-api-python-client
+google-search-results

@@ -108,8 +108,15 @@
 
 1. Соберите контейнеры:
    ```powershell
-   docker-compose build
+   docker compose build
    ```
+   > **Важно:**
+   > - Если видите предупреждение `the attribute version is obsolete`, просто удалите строку `version:` из docker-compose.yml.
+   > - Если появляется ошибка `Cannot connect to the Docker daemon`, убедитесь, что Docker запущен (например, командой `sudo service docker start` в Linux или через Docker Desktop в Windows/Mac). Без запущенного демона Docker ни одна команда не будет работать.
+   > - Если команда `sudo service docker start` не работает (ошибка Unit docker.service not found), попробуйте запустить Docker через:
+   >   - `sudo systemctl start docker` (для большинства современных дистрибутивов Linux)
+   >   - Или используйте графический Docker Desktop (для Windows/Mac)
+   >   - Для Kali Linux: установите пакет docker.io командой `sudo apt install docker.io`, затем `sudo systemctl start docker`
 2. Запустите MongoDB и фреймворк:
    ```powershell
    docker-compose run --rm recon python3 recon.py --target example.com --subdomains --report-format md
