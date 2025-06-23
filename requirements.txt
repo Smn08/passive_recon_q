@@ -1,0 +1,11 @@
+puredns
+dnsx
+httpx
+subfinder
+anew
+nuclei
+paramrep
+python-dotenv
+pymongo
+requests
+rich

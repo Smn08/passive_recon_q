@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:6
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+  recon:
+    build: .
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+      - MONGO_DB=recon
+      - MONGO_COLLECTION=subdomains
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ["python3", "recon.py", "--help"]
+volumes:
+  mongo_data:
